@@ -62,12 +62,12 @@ export default function Home() {
           <h2 className="text-lg font-bold mb-3">商品一覧</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {mockProducts.map((p) => (
-              <div key={p.id} className="bg-white rounded p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+              <Link key={p.id} href={`/products/${p.id}`} className="bg-white rounded p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer block">
                 <div className="text-5xl text-center mb-3">{p.image}</div>
                 <div className="text-sm text-gray-800 mb-1">{p.name}</div>
                 <div className="text-base font-bold text-red-600 mb-1">¥{p.price.toLocaleString()}</div>
                 <div className="text-xs text-gray-400">{p.store}</div>
-              </div>
+              </Link>
             ))}
           </div>
         </section>
