@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import AddToCartButton from "./AddToCartButton";
 
 const mockProducts = [
   { id: 1, name: "ワイヤレスイヤホン", image: "🎧", description: "高音質・ノイズキャンセリング対応のワイヤレスイヤホン。連続再生8時間。" },
@@ -53,9 +54,11 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
           <p className="text-gray-600 text-sm mb-4">{product.description}</p>
           <div className="text-3xl font-bold text-red-600 mb-1">¥{prices.priceMall.toLocaleString()}</div>
           <div className="text-xs text-gray-400 mb-6">PriceMall最安値</div>
-          <button className="w-full bg-yellow-400 text-black font-bold py-3 rounded text-lg hover:bg-yellow-300">
-            準備中
-          </button>
+          <AddToCartButton
+            id={String(product.id)}
+            name={product.name}
+            price={prices.priceMall}
+          />
         </div>
         <div className="bg-white rounded p-6 shadow-sm">
           <h2 className="text-lg font-bold mb-4">他モールの価格比較</h2>

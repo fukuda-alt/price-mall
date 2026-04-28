@@ -1,4 +1,5 @@
 ﻿import Link from "next/link";
+import CartButton from "./CartButton";
 
 const mockProducts = [
   { id: 1, name: "ワイヤレスイヤホン", price: 3980, store: "楽天市場", image: "🎧" },
@@ -20,7 +21,6 @@ const recentProducts = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* ヘッダー */}
       <header className="bg-gray-900 text-white px-6 py-3">
         <div className="max-w-6xl mx-auto flex items-center gap-4">
           <div className="text-xl font-bold text-yellow-400 whitespace-nowrap">PriceMall</div>
@@ -32,18 +32,18 @@ export default function Home() {
           <button className="bg-yellow-400 text-black px-4 py-2 rounded text-sm font-medium hover:bg-yellow-300">
             検索
           </button>
-          <div className="flex gap-3 text-sm whitespace-nowrap ml-2">
+          <div className="flex gap-3 text-sm whitespace-nowrap ml-2 items-center">
             <Link href="/auth/register" className="hover:text-yellow-400">店舗登録</Link>
             <span className="text-gray-500">|</span>
             <a href="/auth/login" className="hover:text-yellow-400">店舗ログイン</a>
             <span className="text-gray-500">|</span>
             <a href="#" className="hover:text-yellow-400">ログイン</a>
+            <span className="text-gray-500">|</span>
+            <CartButton />
           </div>
         </div>
       </header>
-
       <div className="max-w-6xl mx-auto px-6 py-6">
-        {/* 最近見た商品 */}
         <section className="mb-8">
           <h2 className="text-lg font-bold mb-3">最近見た商品</h2>
           <div className="flex gap-4">
@@ -56,8 +56,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        {/* 商品一覧 */}
         <section>
           <h2 className="text-lg font-bold mb-3">商品一覧</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
